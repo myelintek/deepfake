@@ -1,4 +1,4 @@
 ## Using
 
-## Navigate to the scripts directory and begin using entry.ipynb:
+## Navigate in the scripts directory using entry.ipynb:
 Run all shells in the notebook
