@@ -27,7 +27,7 @@ RUN mv /mlsteam/lab/data /mlsteam/data
 
 ADD bash.bashrc /etc/bash.bashrc
 
-RUN cd /mlsteam/lab && make && \
+RUN cd /mlsteam/lab && \
     jupyter nbconvert --to notebook --inplace --execute entry.ipynb
 
 RUN rm -rf /usr/lib/x86_64-linux-gnu/libcuda.so /usr/lib/x86_64-linux-gnu/libcuda.so.1 /tmp/*
