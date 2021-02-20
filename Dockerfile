@@ -23,7 +23,7 @@ RUN sed -i 's/archive.ubuntu.com/tw.archive.ubuntu.com/g' /etc/apt/sources.list 
 RUN pip3 install --upgrade https://github.com/myelintek/lib-mlsteam/releases/download/v0.3/mlsteam-0.3.0-py3-none-any.whl
 
 ADD src /mlsteam/lab
-mv /mlsteam/lab/data /mlsteam/data
+RUN mv /mlsteam/lab/data /mlsteam/data
 
 ADD bash.bashrc /etc/bash.bashrc
 
