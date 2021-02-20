@@ -12,7 +12,9 @@ https://arxiv.org/abs/2005.05535</a>
 ## Using
 
 ### 1. Prepare dataset
-Put two videos "data_src.mp4" and "data_dst.mp4" to the folder ./data
+Put two videos "data_dst.mp4" and "data_src.mp4" to the folder ./data
+"data_dst.mp4" -  target video onto which we swap faces.
+"data_src.mp4" - the video with the person whose face you want to swap onto the target video.
 
 ## 2. Prepare pipeline
 ```bash
