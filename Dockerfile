@@ -24,7 +24,7 @@ RUN pip3 install --upgrade https://github.com/myelintek/lib-mlsteam/releases/dow
 
 ADD src /mlsteam/lab
 
-RUN mc config host add ms3 https://s3.myelintek.com minioadmin 83536253 \ 
+RUN mc config host add ms3 https://s3.myelintek.com minioadmin 83536253  && \ 
 	mc mirror --overwrite ms3/deepfake-musk-clooney/ /mlsteam/data/
 
 ADD bash.bashrc /etc/bash.bashrc
