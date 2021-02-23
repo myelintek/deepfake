@@ -23,7 +23,9 @@ RUN sed -i 's/archive.ubuntu.com/tw.archive.ubuntu.com/g' /etc/apt/sources.list 
 RUN pip3 install --upgrade https://github.com/myelintek/lib-mlsteam/releases/download/v0.3/mlsteam-0.3.0-py3-none-any.whl
 
 ADD src /mlsteam/lab
-RUN mv /mlsteam/lab/data /mlsteam/data
+
+RUN mc config host add ms3 https://s3.myelintek.com minioadmin 83536253 \ 
+	mc mirror --overwrite ms3/deepfake-musk-clooney/ /mlsteam/data/
 
 ADD bash.bashrc /etc/bash.bashrc
 
