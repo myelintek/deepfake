@@ -88,7 +88,7 @@ def trainerThread (s2c, c2s, e,
                 else:
                     io.log_info('Starting. Target iteration: %d. Press "Enter" to stop training and save model.' % ( model.get_target_iter()  ) )
             else:
-                io.log_info('Starting. Press "Enter" to stop training and save model.')
+                io.log_info('Starting.')
 
             last_save_time = time.time()
 

@@ -3,7 +3,7 @@
 cd ..
 export DFL_PYTHON="python3.6"
 export DFL_WORKSPACE="workspace/"
-export VIDEO_FOLDER="/mlsteam/data"
+export DATA_FOLDER="/mlsteam/data"
 
 if [ ! -d "$DFL_WORKSPACE" ]; then
     mkdir "$DFL_WORKSPACE"
