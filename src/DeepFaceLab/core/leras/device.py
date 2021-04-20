@@ -142,17 +142,23 @@ class Devices(object):
 
     @staticmethod
     def getDevices():
-        if Devices.all_devices is None:
-            if int(os.environ.get("NN_DEVICES_INITIALIZED", 0)) != 1:
-                raise Exception("nn devices are not initialized. Run initialize_main_env() in main process.")
-            devices = []
-            for i in range ( int(os.environ['NN_DEVICES_COUNT']) ):
-                devices.append ( Device(index=i,
-                                        name=os.environ[f'NN_DEVICE_{i}_NAME'],
-                                        total_mem=int(os.environ[f'NN_DEVICE_{i}_TOTAL_MEM']),
-                                        free_mem=int(os.environ[f'NN_DEVICE_{i}_FREE_MEM']),
-                                        cc=int(os.environ[f'NN_DEVICE_{i}_CC']) ))
-            Devices.all_devices = Devices(devices)
+#        if Devices.all_devices is None:
+#            if int(os.environ.get("NN_DEVICES_INITIALIZED", 0)) != 1:
+#                raise Exception("nn devices are not initialized. Run initialize_main_env() in main process.")
+#            devices = []
+#            for i in range ( int(os.environ['NN_DEVICES_COUNT']) ):
+#                devices.append ( Device(index=i,
+#                                        name=os.environ[f'NN_DEVICE_{i}_NAME'],
+#                                        total_mem=int(os.environ[f'NN_DEVICE_{i}_TOTAL_MEM']),
+#                                        free_mem=int(os.environ[f'NN_DEVICE_{i}_FREE_MEM']),
+#                                        cc=int(os.environ[f'NN_DEVICE_{i}_CC']) ))
+        devices = []
+        devices.append( Device(index=0,
+                                name='Radeon RX Vega ',
+                                total_mem=7287183768,
+                                free_mem=2992216472,
+                                cc=826))
+        Devices.all_devices = Devices(devices)
 
         return Devices.all_devices
 
