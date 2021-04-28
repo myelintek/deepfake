@@ -28,7 +28,9 @@ ADD src /mlsteam/lab
 ADD bash.bashrc /etc/bash.bashrc
 
 RUN mc config host add ms3 https://s3.myelintek.com minioadmin 83536253  && \ 
-	mc mirror --overwrite ms3/deepfake-musk-clooney/ /mlsteam/data/ 
+	mc mirror --overwrite ms3/deepfake-musk-clooney/ /mlsteam/data/ && \
+	mkdir -p /mlsteam/lab/workspace && \
+	cp /mlsteam/data/data_dst.mp4 /mlsteam/lab/workspace/data_dst.mp4
 #	cd /mlsteam/lab && \ 
 #    jupyter nbconvert --to notebook --inplace --execute entry.ipynb && \
 #	rm -rf /mlsteam/data/*
