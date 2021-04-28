@@ -1,7 +1,7 @@
 import sys
 import ctypes
 import os
-
+import subprocess 
 class Device(object):
     def __init__(self, index, name, total_mem, free_mem, cc=0):
         self.index = index
@@ -153,10 +153,13 @@ class Devices(object):
 #                                        free_mem=int(os.environ[f'NN_DEVICE_{i}_FREE_MEM']),
 #                                        cc=int(os.environ[f'NN_DEVICE_{i}_CC']) ))
         devices = []
+        output = subprocess.check_output('/opt/rocm/bin/rocm-smi -utP --showmeminfo vram --csv', shell=True)
+        amd_total_mem = int(output.decode('utf-8').strip().split('\n')[1:][0].split(',')[6])
+        amd_used_mem = int(output.decode('utf-8').strip().split('\n')[1:][0].split(',')[7])
         devices.append( Device(index=0,
                                 name='Radeon RX Vega ',
-                                total_mem=7287183768,
-                                free_mem=2992216472,
+                                total_mem=amd_total_mem,
+                                free_mem=amd_total_mem - amd_used_mem,
                                 cc=826))
         Devices.all_devices = Devices(devices)
 

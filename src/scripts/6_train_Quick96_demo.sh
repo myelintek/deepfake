@@ -7,5 +7,6 @@ $DFL_PYTHON "$DFL_SRC/main.py" train \
     --model-dir "$DATA_FOLDER/pretrained_model" \
     --model Quick96 \
     --force-gpu-idxs 0 \
-    --force-model-name "new"
+    --force-model-name "new" \
+    --no-preview
 
